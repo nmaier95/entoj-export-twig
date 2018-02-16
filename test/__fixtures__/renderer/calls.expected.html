@@ -1,0 +1,7 @@
+{% from 'base/elements/e-cta.j2' import e_cta %}
+{% from 'base/modules/m-teaser.j2' import m_teaser %}
+{% from 'base/elements/e-headline.j2' import e_headline %}
+{{ e_cta('primary', 'light', model.button, null, null) }}
+{% call m_teaser('content', self, '') %}children{% endcall %}
+{{ e_headline('', 1, 'light', moduleName + '--check') }}
+{{ e_headline('', level + 1, 'light', '') }}

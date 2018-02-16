@@ -1,0 +1,129 @@
+{
+    "type": "NodeList",
+    "children": [
+        {
+            "type": "OutputNode",
+            "children": [
+                {
+                    "type": "ExpressionNode",
+                    "children": [
+                        {
+                            "type": "LiteralNode",
+                            "value": "hi"
+                        },
+                        {
+                            "type": "OperandNode",
+                            "value": "~"
+                        },
+                        {
+                            "type": "LiteralNode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextNode",
+            "value": "\n"
+        },
+        {
+            "type": "OutputNode",
+            "children": [
+                {
+                    "type": "ExpressionNode",
+                    "children": [
+                        {
+                            "type": "LiteralNode",
+                            "value": "hi"
+                        },
+                        {
+                            "type": "OperandNode",
+                            "value": "~"
+                        },
+                        {
+                            "type": "LiteralNode",
+                            "value": "ho"
+                        },
+                        {
+                            "type": "OperandNode",
+                            "value": "~"
+                        },
+                        {
+                            "type": "LiteralNode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextNode",
+            "value": "\n"
+        },
+        {
+            "type": "OutputNode",
+            "children": [
+                {
+                    "type": "ExpressionNode",
+                    "children": [
+                        {
+                            "type": "LiteralNode",
+                            "value": "hi"
+                        },
+                        {
+                            "type": "OperandNode",
+                            "value": "~"
+                        },
+                        {
+                            "type": "LiteralNode",
+                            "value": 1
+                        },
+                        {
+                            "type": "OperandNode",
+                            "value": "~"
+                        },
+                        {
+                            "type": "LiteralNode",
+                            "value": "ho"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextNode",
+            "value": "\n"
+        },
+        {
+            "type": "SetNode",
+            "value": {
+                "type": "ExpressionNode",
+                "children": [
+                    {
+                        "type": "LiteralNode",
+                        "value": 1
+                    },
+                    {
+                        "type": "OperandNode",
+                        "value": "~"
+                    },
+                    {
+                        "type": "LiteralNode",
+                        "value": "ho"
+                    }
+                ]
+            },
+            "variable": {
+                "type": "VariableNode",
+                "fields": [
+                    "result"
+                ]
+            }
+        },
+        {
+            "type": "TextNode",
+            "value": "\n"
+        }
+    ]
+}
