@@ -25,7 +25,8 @@ class TwigConfiguration extends Configuration
         // Assign options
         this._moduleConfiguration = moduleConfiguration;
         this._identifier = moduleConfiguration.configurationName;
-        this.macroUsage = {};
+        this._macroCalls = {};
+        this._macroCallsStash = [];
     }
 
 
@@ -48,21 +49,77 @@ class TwigConfiguration extends Configuration
 
 
     /**
-     * @param {Object} macroConfiguration
+     * @type {Object}
      */
-    registerMacroUsage(macroConfiguration)
+    get macroCalls()
     {
-        this.macroUsage[macroConfiguration.site.name + ':' + macroConfiguration.macro.name] = macroConfiguration;
+        return this._macroCalls;
     }
 
 
     /**
-     *
+     * @param {Object} macroConfiguration
      */
-    resetMacroUsage()
+    addMacroCalls(calls)
     {
-        this.macroUsage = {};
+        for (const call in calls)
+        {
+            this.addMacroCall(calls[call]);
+        }
     }
+
+
+    /**
+     * @param {Object} macroConfiguration
+     */
+    addMacroCall(macroConfiguration)
+    {
+        this._macroCalls[macroConfiguration.site.name + ':' + macroConfiguration.macro.name] = macroConfiguration;
+    }
+
+
+    /**
+     * Clears all recorded macro calls
+     */
+    resetMacroCalls()
+    {
+        this._macroCalls = {};
+        this._macroCallsStash = [];
+    }
+
+
+    /**
+     * Saves all macro calls to the stash
+     */
+    saveMacroCalls()
+    {
+        this._macroCallsStash.push(this._macroCalls);
+        this._macroCalls = {};
+    }
+    
+    
+    /**
+     * Restores the last saved macro calls from the stash
+     */
+    restoreMacroCalls(append)
+    {
+        if (this._macroCallsStash.length == 0)
+        {
+            if (!append)
+            {
+                this._macroCalls = {};
+            }
+            return;
+        }
+        if (append)
+        {
+            this.addMacroCalls(this._macroCallsStash.pop());
+        }
+        else
+        {
+            this._macroCalls = this._macroCallsStash.pop();
+        }
+    }     
 
 
     /**
@@ -93,9 +150,9 @@ class TwigConfiguration extends Configuration
                 result.filename+= result.entity.idString.replace(/_/g, '-');
             }
         }
-        if (!result.filename.endsWith('.j2'))
+        if (!result.filename.endsWith('.html'))
         {
-            result.filename+= '.j2';
+            result.filename+= '.html';
         }
 
         result.includePath = this.moduleConfiguration.includePath + result.entity.id.site.name.urlify() + '/' + result.entity.id.category.pluralName.urlify() + '/';
@@ -107,9 +164,13 @@ class TwigConfiguration extends Configuration
         {
             result.includePath+= result.entity.idString.replace(/_/g, '-');
         }
-        if (!result.includePath.endsWith('.j2'))
+        if (!result.includePath.endsWith('.html'))
         {
-            result.includePath+= '.j2';
+            result.includePath+= '.html';
+        }
+        if (!result.includePath.startsWith('/'))
+        {
+            //result.includePath = '/' + result.includePath;
         }
 
         return Promise.resolve(result);

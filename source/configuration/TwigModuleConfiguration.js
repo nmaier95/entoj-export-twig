@@ -32,10 +32,6 @@ class TwigModuleConfiguration extends Base
             : 'twig';
         this._configurationName = buildConfiguration.get(prefix + '.configurationName', globalConfiguration.get(prefix + '.configurationName', prefix));
         this._exportPath = buildConfiguration.get(prefix + '.exportPath', globalConfiguration.get(prefix + '.exportPath', '${cache}/${configurationName}/export'));
-        this._assetBaseUrl = buildConfiguration.get(prefix + '.assetBaseUrl', globalConfiguration.get(prefix + '.assetBaseUrl', ''));
-        this._svgBaseUrl = buildConfiguration.get(prefix + '.svgBaseUrl', globalConfiguration.get(prefix + '.svgBaseUrl', ''));
-        this._svgBasePath = buildConfiguration.get(prefix + '.svgBasePath', globalConfiguration.get(prefix + '.svgBasePath', ''));
-        this._imageBaseUrl = buildConfiguration.get(prefix + '.imageBaseUrl', globalConfiguration.get(prefix + '.imageBaseUrl', ''));
         this._basePath = buildConfiguration.get(prefix + '.basePath', globalConfiguration.get(prefix + '.basePath', ''));
         this._includePath = buildConfiguration.get(prefix + '.includePath', globalConfiguration.get(prefix + '.includePath', ''));
     }
@@ -91,50 +87,6 @@ class TwigModuleConfiguration extends Base
     get exportPath()
     {
         return this._exportPath;
-    }
-
-
-    /**
-     * The base url for images - used by imageUrl filter
-     *
-     * @type {String}
-     */
-    get imageBaseUrl()
-    {
-        return this._imageBaseUrl;
-    }
-
-
-    /**
-     * The base url for assets - used by assetUrl filter
-     *
-     * @type {String}
-     */
-    get assetBaseUrl()
-    {
-        return this._assetBaseUrl;
-    }
-
-
-    /**
-     * The base path for svg icons - used by svgViewBox filter renderer
-     *
-     * @type {String}
-     */
-    get svgBasePath()
-    {
-        return this._svgBasePath;
-    }
-
-
-    /**
-     * The base path for svg icons - used by svgUrl filter
-     *
-     * @type {String}
-     */
-    get svgBaseUrl()
-    {
-        return this._svgBaseUrl;
     }
 
 

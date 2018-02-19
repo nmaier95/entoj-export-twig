@@ -32,5 +32,5 @@ describe(TwigConfiguration.className, function()
         }
     }
 
-    configurationSpec(TwigConfiguration, 'export/TwigConfiguration', prepareParameters, { identifier: 'jsp' });
+    configurationSpec(TwigConfiguration, 'export/TwigConfiguration', prepareParameters, { identifier: 'twig' });
 });

@@ -25,12 +25,15 @@ class TwigRenderer extends Renderer
     renderPreface(configuration)
     {
         let result = '';
-        for (const usageName in configuration.macroUsage)
+        for (const callName in configuration.macroCalls)
         {
-            const usage = configuration.macroUsage[usageName];
-            result+= '{% from \'' + usage.includePath + '\' import ' + usage.macro.name + ' %}\n';
+            const call = configuration.macroCalls[callName];
+            if (!call.addedInclude)
+            {
+                result+= '{% from \'' + call.includePath + '\' import ' + call.macro.name + ' %}\n';
+            }
         }
-        configuration.resetMacroUsage();
+        configuration.resetMacroCalls();
         return Promise.resolve(result);
     }
 

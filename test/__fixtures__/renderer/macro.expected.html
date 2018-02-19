@@ -1,0 +1,10 @@
+{% macro example() %}
+{% from 'base/elements/e-cta.html' import e_cta %}
+{% from 'base/modules/m-teaser.html' import m_teaser %}
+{% from 'base/elements/e-headline.html' import e_headline %}
+
+    {{ e_cta('primary', 'light', model.button, null, null) }}
+    {% call m_teaser('content', self, '') %}children{% endcall %}
+    {{ e_headline('', 1, 'light', moduleName + '--check') }}
+    {{ e_headline('', level + 1, 'light', '') }}
+{% endmacro %}

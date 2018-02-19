@@ -50,6 +50,7 @@ module.exports =
     TwigBooleanOperandNodeRenderer: require('./TwigBooleanOperandNodeRenderer.js').TwigBooleanOperandNodeRenderer,   
     TwigOutputNodeRenderer: require('./TwigOutputNodeRenderer.js').TwigOutputNodeRenderer,   
     TwigVariableNodeRenderer: require('./TwigVariableNodeRenderer.js').TwigVariableNodeRenderer,
+    TwigYieldNodeRenderer: require('./TwigYieldNodeRenderer.js').TwigYieldNodeRenderer,    
     TwigTextNodeRenderer: require('entoj-system').export.renderer.TextNodeRenderer,
     TwigNodeListRenderer: require('entoj-system').export.renderer.NodeListRenderer,
 
@@ -97,6 +98,7 @@ module.exports =
         require('./TwigOutputNodeRenderer.js').TwigOutputNodeRenderer,       
         require('./TwigVariableNodeRenderer.js').TwigVariableNodeRenderer,
         require('./TwigComplexVariableNodeRenderer.js').TwigComplexVariableNodeRenderer,
+        require('./TwigYieldNodeRenderer.js').TwigYieldNodeRenderer,
         require('entoj-system').export.renderer.TextNodeRenderer,
         require('entoj-system').export.renderer.NodeListRenderer
     ]

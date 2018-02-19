@@ -39,24 +39,11 @@ class TwigExportCommand extends ExportCommand
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get className()
     {
         return 'command/TwigExportCommand';
-    }
-
-
-    /**
-     * @inheritDocs
-     */
-    addTasks(task, mapping)
-    {
-        if (!task)
-        {
-            return Promise.resolve();
-        }
-        return Promise.resolve(task.pipe(this.context.di.create(BeautifyHtmlTask, mapping)));
     }
 }
 

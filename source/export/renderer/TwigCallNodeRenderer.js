@@ -52,7 +52,7 @@ class TwigCallNodeRenderer extends NodeRenderer
             {
                 throw new MissingConfigurationError('CallNodeRenderer::render - no configuration for macro ' + node.name + ' found.');
             }
-            configuration.registerMacroUsage(macroConfiguration);
+            configuration.addMacroCall(macroConfiguration);
 
             // Get arguments
             const args = prepareArguments(node, macroConfiguration, configuration, 'nodes');

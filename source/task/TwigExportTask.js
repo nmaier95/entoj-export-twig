@@ -27,7 +27,7 @@ class TwigExportTask extends ExportTask
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get injections()
     {
@@ -36,7 +36,7 @@ class TwigExportTask extends ExportTask
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get className()
     {
@@ -45,7 +45,7 @@ class TwigExportTask extends ExportTask
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     get sectionName()
     {
@@ -54,12 +54,12 @@ class TwigExportTask extends ExportTask
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     get exportName()
     {
         return 'twig';
-    }
+    } 
 }
 
 

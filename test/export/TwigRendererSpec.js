@@ -19,26 +19,14 @@ describe(TwigRenderer.className, function()
     /**
      * Renderer Test
      */
-    const fixtureConfiguration =
-    {
-        settings:
-        {
-            jsp:
-            {
-                assetBaseUrl: '/base/global/assets',
-                imageBaseUrl: '/images'
-            }
-        }
-    };
     const testFixtures =
     {
-        'should render conditions': 'conditions',
-        'should render assignments': 'assignments',
-        'should render calls': 'calls',      
-        'should render loops': 'loops',
-        /*
-        'should render filter': 'filter'
-        */
+        //'should render conditions': 'conditions',
+        //'should render assignments': 'assignments',
+        //'should render calls': 'calls',      
+        //'should render loops': 'loops',
+        //'should render filter': 'filter',
+        'should render macros': 'macro'        
     };
     const options =
     {
@@ -47,9 +35,9 @@ describe(TwigRenderer.className, function()
             const moduleConfiguration = new TwigModuleConfiguration(global.fixtures.globalConfiguration, global.fixtures.buildConfiguration);
             return new TwigConfiguration(entity, macro, settings, parser, renderer, transformer, globalRepository, buildConfiguration, moduleConfiguration);
         },
-        fixtureInputPath: require('entoj-system/test').fixture.export.renderer,
+        fixtureInputPath: TWIG_FIXTURES + '/renderer',
         fixtureExpectedPath: TWIG_FIXTURES + '/renderer',
-        createFixture: () => projectFixture.createDynamic(fixtureConfiguration)
+        createFixture: () => projectFixture.createDynamic()
     };
     const prepareParameters = (parameters) =>
     {

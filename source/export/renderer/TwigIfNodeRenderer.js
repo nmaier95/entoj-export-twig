@@ -47,10 +47,11 @@ class TwigIfNodeRenderer extends NodeRenderer
             // ... ? ... : ....
             if (node.parent && node.parent.is('ExpressionNode'))
             {
-                result+= yield configuration.renderer.renderList(node.children, configuration);
-                result+= ' if ';
+                result+= '(';   
                 result+= yield configuration.renderer.renderNode(node.condition, configuration);
-                result+= ' else ';
+                result+= ') ? ';
+                result+= yield configuration.renderer.renderList(node.children, configuration);
+                result+= ' : ';                
                 result+= yield configuration.renderer.renderList(node.elseChildren, configuration);
             }
             // If ...

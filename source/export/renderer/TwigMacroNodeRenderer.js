@@ -68,11 +68,34 @@ class TwigMacroNodeRenderer extends NodeListRenderer
             }
             result+= ') %}';
 
+            // Store current usage
+            configuration.saveMacroCalls();
 
-            // Children
-            result+= yield configuration.renderer.renderList(node.children, configuration);
+            // Generate body            
+            const body = yield configuration.renderer.renderList(node.children, configuration);
+
+            // Add imports
+            isFirst = true;
+            for (const callName in configuration.macroCalls)
+            {
+                if (isFirst)
+                {
+                    result+= '\n';
+                    isFirst = false;
+                }
+                const call = configuration.macroCalls[callName];
+                call.addedInclude = true;
+                result+= '{% from \'' + call.includePath + '\' import ' + call.macro.name + ' %}\n';
+            }  
+
+            // Restore usage
+            configuration.restoreMacroCalls(true);
+
+            // Add body
+            result+= body;
+
+            // End
             result+= '{% endmacro %}';
-
 
             return result;
         });
