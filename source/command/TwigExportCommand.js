@@ -8,7 +8,6 @@ const ExportCommand = require('entoj-system').command.ExportCommand;
 const Context = require('entoj-system').application.Context;
 const TwigExportTask = require('../task/TwigExportTask.js').TwigExportTask;
 const TwigModuleConfiguration = require('../configuration/TwigModuleConfiguration.js').TwigModuleConfiguration;
-const BeautifyHtmlTask = require('entoj-html').task.BeautifyHtmlTask;
 
 
 /**
