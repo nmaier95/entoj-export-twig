@@ -74,7 +74,7 @@ class TwigIfNodeRenderer extends NodeRenderer
                 {
                     for (const elseIfNode of node.elseIfChildren)
                     {
-                        result+= '{% elif ';
+                        result+= '{% elseif ';
                         result+= yield configuration.renderer.renderNode(elseIfNode.condition, configuration);
                         result+= ' %}';
                         result+= yield configuration.renderer.renderList(elseIfNode.children, configuration);
