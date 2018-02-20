@@ -134,13 +134,13 @@ class TwigConfiguration extends Configuration
             result.filename = '';
             if (this.settings.filename.indexOf('/') === -1)
             {
-                result.filename+= this.moduleConfiguration.basePath + result.entity.id.site.name.urlify() + '/' + result.entity.id.category.pluralName.urlify() + '/';
+                result.filename+= this.moduleConfiguration.basePath + result.entity.id.category.pluralName.urlify() + '/';
             }
             result.filename+= (this.settings.filename.substr(0, this.settings.filename.lastIndexOf('.')) || this.settings.filename);
         }
         else
         {
-            result.filename = this.moduleConfiguration.basePath + result.entity.id.site.name.urlify() + '/' + result.entity.id.category.pluralName.urlify() + '/';
+            result.filename = this.moduleConfiguration.basePath + result.entity.id.category.pluralName.urlify() + '/';
             if (result.macro)
             {
                 result.filename+= result.macro.name.replace(/_/g, '-');
@@ -150,12 +150,12 @@ class TwigConfiguration extends Configuration
                 result.filename+= result.entity.idString.replace(/_/g, '-');
             }
         }
-        if (!result.filename.endsWith('.html'))
+        if (!result.filename.endsWith(this.moduleConfiguration.fileExtension))
         {
-            result.filename+= '.html';
+            result.filename+= this.moduleConfiguration.fileExtension;
         }
 
-        result.includePath = this.moduleConfiguration.includePath + result.entity.id.site.name.urlify() + '/' + result.entity.id.category.pluralName.urlify() + '/';
+        result.includePath = this.moduleConfiguration.includePath + result.entity.id.category.pluralName.urlify() + '/';
         if (result.macro)
         {
             result.includePath+= result.macro.name.replace(/_/g, '-');
@@ -164,9 +164,9 @@ class TwigConfiguration extends Configuration
         {
             result.includePath+= result.entity.idString.replace(/_/g, '-');
         }
-        if (!result.includePath.endsWith('.html'))
+        if (!result.includePath.endsWith(this.moduleConfiguration.fileExtension))
         {
-            result.includePath+= '.html';
+            result.includePath+= this.moduleConfiguration.fileExtension;
         }
         if (!result.includePath.startsWith('/'))
         {
