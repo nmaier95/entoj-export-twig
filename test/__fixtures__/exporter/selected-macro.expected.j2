@@ -1,7 +1,7 @@
 {% macro m_teaser_hero(model) %}
-{% from 'base/modules/m-teaser.html' import m_teaser %}
+{% from 'modules/m-teaser.twig' import m_teaser %}
 
 
-    {{ m_teaser('hero', model, '') }}
+    {{ m_teaser('hero', '', model) }}
 
 {% endmacro %}
