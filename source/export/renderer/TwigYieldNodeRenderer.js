@@ -39,7 +39,7 @@ class TwigYieldNodeRenderer extends NodeRenderer
         {
             return Promise.resolve('');
         }
-        return Promise.resolve('caller()');
+        return Promise.resolve('{{ caller }}');
     }
 }
 

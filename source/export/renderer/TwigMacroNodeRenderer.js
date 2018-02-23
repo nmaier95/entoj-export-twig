@@ -66,8 +66,13 @@ class TwigMacroNodeRenderer extends NodeListRenderer
                 }
                 isFirst = false;              
             }
+            if (!isFirst)
+            {
+                result+= ', ';
+            }
+            result+= 'caller';   
             result+= ') %}';
-
+            
             // Store current usage
             configuration.saveMacroCalls();
 
