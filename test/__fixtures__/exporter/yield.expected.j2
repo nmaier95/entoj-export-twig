@@ -1,7 +1,7 @@
-{% macro m_teaser(type = 'content', classes = '', model) %}
-{% from 'elements/e-image.twig' import e_image %}
-{% from 'elements/e-headline.twig' import e_headline %}
-{% from 'elements/e-cta.twig' import e_cta %}
+{% macro m_teaser(type = 'content', model, classes = '', caller) %}
+{% from 'base/elements/e-image.html' import e_image %}
+{% from 'base/elements/e-headline.html' import e_headline %}
+{% from 'base/elements/e-cta.html' import e_cta %}
 
 
     
