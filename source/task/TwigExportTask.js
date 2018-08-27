@@ -8,7 +8,7 @@ const TwigExporter = require('../export/TwigExporter.js').TwigExporter;
 const ExportTask = require('entoj-system').task.ExportTask;
 const GlobalRepository = require('entoj-system').model.GlobalRepository;
 const CliLogger = require('entoj-system').cli.CliLogger;
-const BuildConfiguration = require('entoj-system').model.configuration.BuildConfiguration;
+const EntitiesRepository = require('entoj-system').model.entity.EntitiesRepository;
 
 
 /**
@@ -17,21 +17,11 @@ const BuildConfiguration = require('entoj-system').model.configuration.BuildConf
 class TwigExportTask extends ExportTask
 {
     /**
-     * @param {cli.CliLogger} cliLogger
-     * @param {model.GlobalRepository} globalRepository
-     */
-    constructor(cliLogger, globalRepository, buildConfiguration, exporter)
-    {
-        super(cliLogger, globalRepository, exporter);
-    }
-
-
-    /**
      * @inheritDoc
      */
     static get injections()
     {
-        return { 'parameters': [CliLogger, GlobalRepository, BuildConfiguration, TwigExporter] };
+        return { 'parameters': [CliLogger, EntitiesRepository, GlobalRepository, TwigExporter] };
     }
 
 
@@ -59,7 +49,7 @@ class TwigExportTask extends ExportTask
     get exportName()
     {
         return 'twig';
-    } 
+    }
 }
 
 
